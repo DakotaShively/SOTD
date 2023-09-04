@@ -2,22 +2,22 @@ import { ActivityIndicator, Text } from "react-native";
 import Tweet from "../../components/Tweet";
 import { useSearchParams } from "expo-router";
 
-export default function TweetScreen() {
-	const { id } = useSearchParams();
-	const { getTweet } = useTweetsApi();
+// export default function TweetScreen() {
+// 	const { id } = useSearchParams();
+// 	const { getTweet } = useTweetsApi();
 
-	const { data, isLoading, error } = useQuery({
-		queryKey: ["tweet", id],
-		queryFn: () => getTweet(id as string),
-	});
+// 	const { data, isLoading, error } = useQuery({
+// 		queryKey: ["tweet", id],
+// 		queryFn: () => getTweet(id as string),
+// 	});
 
-	if (isLoading) {
-		return <ActivityIndicator />;
-	}
+// 	if (isLoading) {
+// 		return <ActivityIndicator />;
+// 	}
 
-	if (error) {
-		return <Text>Tweet {id} not found!</Text>;
-	}
+// 	if (error) {
+// 		return <Text>Tweet {id} not found!</Text>;
+// 	}
 
-	return <Tweet tweet={data} />;
-}
+// 	return <Tweet tweet={data} />;
+// }
