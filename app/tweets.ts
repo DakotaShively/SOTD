@@ -11,8 +11,8 @@ const tweets = [
 		createdAt: "2020-08-27T12:00:00.000Z",
 		content: "Is this how I post my Scent of the Day? #SOTD",
 		image: "https://fimgs.net/mdimg/perfume/375x500.30854.jpg",
-		numberOfComments: 123,
-		numberOfRetweets: 11,
+		numberOfComments: 12,
+		numberOfRetweets: 4,
 		numberOfLikes: 10,
 	},
 	{
