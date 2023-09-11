@@ -2,3 +2,6 @@
 
 
 ![Screenshot](assets/images/IconWithName.png)
+
+IconWithName.png
+
