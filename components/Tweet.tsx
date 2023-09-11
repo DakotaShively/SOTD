@@ -6,26 +6,27 @@ import { Link } from "expo-router";
 type TweetProps = {
 	tweet: TweetType;
 };
-
 const Tweet = ({ tweet }: TweetProps) => {
 	return (
-		<View>
-			<Pressable style={styles.container}>
-				<Image src={tweet.user.image} style={styles.userImage} />
-				<View style={styles.mainContainer}>
-					<Text style={styles.name}>{tweet.user.name}</Text>
-					<Text style={styles.content}>{tweet.content}</Text>
+		<Link href={"/abc"} asChild>
+			<View>
+				<Pressable style={styles.container}>
+					<Image src={tweet.user.image} style={styles.userImage} />
+					<View style={styles.mainContainer}>
+						<Text style={styles.name}>{tweet.user.name}</Text>
+						<Text style={styles.content}>{tweet.content}</Text>
+					</View>
+					<View>
+						<Image src={tweet.image} style={styles.fragranceImage} />
+					</View>
+				</Pressable>
+				<View style={styles.footer}>
+					<IconButton icon="comment" text={tweet.numberOfComments} />
+					<IconButton icon="retweet" text={tweet.numberOfRetweets} />
+					<IconButton icon="heart" text={tweet.numberOfLikes} />
 				</View>
-				<View>
-					<Image src={tweet.image} style={styles.fragranceImage} />
-				</View>
-			</Pressable>
-			<View style={styles.footer}>
-				<IconButton icon="comment" text={tweet.numberOfComments} />
-				<IconButton icon="retweet" text={tweet.numberOfRetweets} />
-				<IconButton icon="heart" text={tweet.numberOfLikes} />
 			</View>
-		</View>
+		</Link>
 	);
 };
 
