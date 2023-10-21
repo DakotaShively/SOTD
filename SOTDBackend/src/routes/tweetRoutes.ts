@@ -26,7 +26,18 @@ router.post("/", async (req, res) => {
 });
 //Get list of Tweet
 router.get("/", async (req, res) => {
-	const allTweets = await prisma.tweet.findMany();
+	const allTweets = await prisma.tweet.findMany({
+		include: {
+			user: {
+				select: {
+					id: true,
+					name: true,
+					username: true,
+					image: true,
+				},
+			},
+		},
+	});
 	res.json(allTweets);
 });
 
@@ -41,9 +52,10 @@ router.get("/:id", async (req, res) => {
 });
 
 //Delete tweet
-router.delete("/:id", (req, res) => {
+router.delete("/:id", async (req, res) => {
 	const { id } = req.params;
-	res.status(501).json({ error: "Not Implemented: ${id}" });
+	await prisma.tweet.delete({ where: { id: Number(id) } });
+	res.status(200);
 });
 
 export default router;
