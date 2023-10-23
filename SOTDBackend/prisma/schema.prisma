@@ -18,8 +18,29 @@ model User {
   bio String?
 
   tweets Tweet[]
+  tokens Token[]
 }
 
+
+model Token {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  type String // Email or API
+  emailToken String? @unique
+
+  valid Boolean @default(true)
+  expiration DateTime
+
+  userId Int 
+  user User @relation(fields: [userId], references: [id])
+}
+
+// enum TokenType {
+//   EMAIL
+//   API
+// }This will work after we move to PostGres as Prisma doesn't support enums
 model Tweet {
   id Int @id @default(autoincrement())
   createdAt DateTime @default(now())
